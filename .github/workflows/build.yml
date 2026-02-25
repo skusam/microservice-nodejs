@@ -28,13 +28,12 @@ jobs:
       - name: Run tests
         run: npm test
 
-      # 5. Testergebnisse hochladen
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
+      # 5. Testergebnisse im GitHub UI anzeigen
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
-          name: test-results
-          path: test-results
+          files: test-results/**/*.xml
 
       # 6. TypeScript build
       - name: Build TypeScript
