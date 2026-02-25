@@ -1,0 +1,20 @@
+version: 2
+updates:
+  # --- 1. npm Dependencies (package.json) ---
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+
+  # --- 2. GitHub Actions Updates ---
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # --- 3. Dockerfile Updates ---
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
