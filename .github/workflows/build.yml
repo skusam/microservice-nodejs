@@ -33,7 +33,7 @@ jobs:
       - name: Run tests
         run: npm test
 
-      # 5. Testergebnisse im GitHub UI anzeigen
+      # 5. Testergebnisse im GitHub UI zeigen
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
