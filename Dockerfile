@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Dependencies installieren
-RUN npm install
+RUN npm ci
 
 # Restlichen Code kopieren
 COPY . .
@@ -21,11 +21,8 @@ FROM node:25-alpine AS runtime
 
 WORKDIR /app
 
-# Nur notwendige Dateien kopieren
-COPY package*.json ./
-RUN npm install --omit=dev
-
-# Kompiliertes JS aus dem Build-Container kopieren
+# Nur Produktions-Dependencies aus dem Build kopieren
+COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 
 EXPOSE 8080
