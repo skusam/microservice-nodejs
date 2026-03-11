@@ -53,7 +53,7 @@ jobs:
 
       # 8. Docker Buildx einrichten
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       # 9. Docker Image bauen & pushen
       - name: Build and push Docker image
